@@ -1,9 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <h1>
-    {{ appTitle }}
-  </h1>
-  <small>{{ todayDate | date: 'EEEE, MMMM d'  }}</small>
-  <app-tasks></app-tasks>
+  <header class="header">
+    <div id="date" >{{ todayDate | date: 'EEEE, MMMM d'  }}</div>
+  </header>
+  <section class="content">
+    <app-tasks></app-tasks>
+  </section>
   <app-task-form></app-task-form>
 </div>
