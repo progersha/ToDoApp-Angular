@@ -23,4 +23,8 @@ export class TasksService {
         this.tasks = this.tasks.filter(t => t.id !== id)
     }
 
+    addTodo(task: Task) {
+        this.tasks.push(task);
+    }
+
 }
