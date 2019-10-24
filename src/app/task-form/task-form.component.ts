@@ -8,18 +8,22 @@ import {Task, TasksService} from "../shared/tasks.service";
 })
 export class TaskFormComponent implements OnInit {
 
-  text: string = '';
+  text: string;
   constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
   }
 
   addTask() {
-      const task: Task = {
-        text: this.text,
-        id: Date.now(),
-        completed: false
+      if (this.text == "") {
+          return;
       }
+      const task: Task = {
+          text: this.text,
+          id: Date.now(),
+          completed: false
+      };
       this.tasksService.addTodo(task);
+      this.text = "";
   }
 }

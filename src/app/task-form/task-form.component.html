@@ -1,4 +1,8 @@
 <div class="add-to-do">
-  <button (click)="addTask()">Add</button>
-  <input [(ngModel)]="text" type="text" id="input" placeholder="Add a to-do" minlength="1">
+  <i class="fa fa-plus-circle plus"
+     (click)="addTask()"></i>
+  <input [(ngModel)]="text"
+         type="text" id="input"
+         placeholder="Add a to-do"
+         minlength="1">
 </div>
