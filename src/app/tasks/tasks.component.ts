@@ -1,5 +1,5 @@
-import { Component, OnInit} from '@angular/core';
-import {TasksService} from "../shared/tasks.service";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Task} from "../shared/tasks.service";
 
 @Component({
   selector: 'app-tasks',
@@ -8,17 +8,21 @@ import {TasksService} from "../shared/tasks.service";
 })
 export class TasksComponent implements OnInit {
 
-  constructor(private tasksService: TasksService) { }
+  @Input() tasks: Task[];
+  @Output() onToggle = new EventEmitter<number>();
+  @Output() onRemove = new EventEmitter<number>();
+
+  constructor() { }
 
   ngOnInit() {
   }
 
   onChange(id: number) {
-    this.tasksService.onToggle(id);
+    this.onToggle.emit(id);
   }
 
   removeTask(id: number) {
-    this.tasksService.onRemove(id);
+    this.onRemove.emit(id);
   }
 
 }

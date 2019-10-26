@@ -8,11 +8,16 @@ export interface Task {
 
 @Injectable({providedIn: 'root'})
 export class TasksService {
-    public tasks: Task[] = [
+
+    private tasks: Task[] = [
         {id: 0, text: 'Drink coffe', completed: false},
         {id: 1, text: 'Drink tea', completed: true},
         {id: 2, text: 'Drink juice', completed: false}
-    ]
+    ];
+
+    getTask() {
+        return this.tasks;
+    }
 
     onToggle(id: number) {
         const idx = this.tasks.findIndex(t => t.id === id);
@@ -27,4 +32,17 @@ export class TasksService {
         this.tasks.push(task);
     }
 
+    setFilter(id: number) {
+        return this.tasks.filter((task) => {
+            if (id == 2) {
+                console.log(task.completed);
+                return task.completed;
+            }
+            if (id == 1) {
+                console.log(!task.completed);
+                return !task.completed;
+            }
+            return true;
+        });
+    }
 }

@@ -4,8 +4,10 @@
     <div id="date" >{{ todayDate | date: 'EEEE, MMMM d'  }}</div>
   </header>
   <section class="content">
-    <app-filters></app-filters>
-    <app-tasks></app-tasks>
+    <app-filters (onSetFilter)="setFilter($event)"></app-filters>
+    <app-tasks [tasks]="filteredTasks"
+               (onRemove)="removeTask($event)"
+               (onToggle)="toggleTask($event)"></app-tasks>
   </section>
   <app-task-form></app-task-form>
 </div>
