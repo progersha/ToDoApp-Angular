@@ -23,7 +23,6 @@ export class FiltersComponent implements OnInit {
   onClick(id: filterType) {
     this.onSetFilter.emit(id);
     this.currentFilterIndex = id;
-    // this.tasksServes.setFilter(id);
   }
 
 }

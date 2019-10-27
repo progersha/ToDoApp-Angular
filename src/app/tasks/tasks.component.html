@@ -5,7 +5,7 @@
        [class.fa-circle-thin]="!task.completed"
        (click)="onChange(task.id)">
     </i>
-    <p class="text" [class.done]="task.completed">{{ task.text }}</p>
+    <p class="text" SIZE="30" [class.done]="task.completed">{{ task.text }}</p>
     <i class="fa fa-trash-o de" (click)="removeTask(task.id)"></i>
   </li>
 </ul>

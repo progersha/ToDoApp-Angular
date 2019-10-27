@@ -11,6 +11,7 @@ export class TasksComponent implements OnInit {
   @Input() tasks: Task[];
   @Output() onToggle = new EventEmitter<number>();
   @Output() onRemove = new EventEmitter<number>();
+  @Output() onAmount = new EventEmitter<null>();
 
   constructor() { }
 

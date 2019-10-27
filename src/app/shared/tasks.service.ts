@@ -35,11 +35,9 @@ export class TasksService {
     setFilter(id: number) {
         return this.tasks.filter((task) => {
             if (id == 2) {
-                console.log(task.completed);
                 return task.completed;
             }
             if (id == 1) {
-                console.log(!task.completed);
                 return !task.completed;
             }
             return true;

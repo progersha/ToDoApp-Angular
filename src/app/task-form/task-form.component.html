@@ -1,7 +1,9 @@
 <div class="add-to-do">
   <i class="fa fa-plus-circle plus"
-     (click)="addTask()"></i>
+     (click)="addTask()">
+  </i>
   <input [(ngModel)]="text"
+         (keyup.enter)="addTask()"
          type="text" id="input"
          placeholder="Add a to-do"
          minlength="1">
