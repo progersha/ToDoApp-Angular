@@ -9,5 +9,5 @@
                (onRemove)="removeTask($event)"
                (onToggle)="toggleTask($event)"></app-tasks>
   </section>
-  <app-task-form></app-task-form>
+  <app-task-form (onSubmit)="addTask($event)"></app-task-form>
 </div>

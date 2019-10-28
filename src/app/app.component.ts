@@ -17,16 +17,23 @@ export class AppComponent {
   }
 
   setFilter(filterId: filterType) {
-    this.filteredTasks = this.taskService.setFilter(filterId);
+    this.taskService.setFilter(filterId);
+    this.filteredTasks = this.taskService.getTask();
   }
 
   toggleTask(id: number) {
     this.taskService.onToggle(id);
     this.filteredTasks = this.taskService.getTask();
+
   }
 
   removeTask(id: number) {
     this.taskService.onRemove(id);
+    this.filteredTasks = this.taskService.getTask();
+  }
+
+  addTask(task: Task) {
+    this.taskService.addTodo(task);
     this.filteredTasks = this.taskService.getTask();
   }
 

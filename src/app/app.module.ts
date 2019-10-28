@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskFormComponent } from './task-form/task-form.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { FiltersComponent } from './filters/filters.component';
 
 @NgModule({

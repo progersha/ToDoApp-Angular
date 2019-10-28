@@ -1,5 +1,4 @@
 import {Injectable} from "@angular/core";
-import {TasksService} from "../shared/tasks.service";
 import {filterType} from "../filters/filters.component";
 
 export interface Filter{
