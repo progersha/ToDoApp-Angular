@@ -11,18 +11,17 @@ export interface Task {
 @Injectable({providedIn: 'root'})
 export class TasksService {
 
-    private tasks: Task[] = [
-        {id: 0, text: 'Drink coffe', completed: false},
-        {id: 1, text: 'Drink tea', completed: true},
-        {id: 2, text: 'Drink juice', completed: false},
-    ];
+    private tasks: Task[] = JSON.parse(localStorage.getItem('todos')) || [];
+        // {id: 0, text: 'Drink coffee', completed: false},
+        // {id: 1, text: 'Drink tea', completed: true},
+        // {id: 2, text: 'Drink juice', completed: false},
+
     private currentFilter: filterType = 0;
 
     getTask() {
         if (this.currentFilter == 0) {
             return this.tasks;
         }
-        //this.tasks = JSON.parse(localStorage.getItem('todos'));
         return this.tasks.filter((task) => {
             if (this.currentFilter == 2) {
                 return task.completed;
@@ -34,17 +33,17 @@ export class TasksService {
     onToggle(id: number) {
         const idx = this.tasks.findIndex(t => t.id === id);
         this.tasks[idx].completed = !this.tasks[idx].completed;
-        //localStorage.setItem('todos', JSON.stringify(this.tasks));
+        localStorage.setItem('todos', JSON.stringify(this.tasks));
     }
 
     onRemove(id: number) {
         this.tasks = this.tasks.filter(t => t.id !== id)
-        //localStorage.setItem('todos', JSON.stringify(this.tasks));
+        localStorage.setItem('todos', JSON.stringify(this.tasks));
     }
 
     addTodo(task: Task) {
         this.tasks.push(task);
-        //localStorage.setItem('todos', JSON.stringify(this.tasks));
+        localStorage.setItem('todos', JSON.stringify(this.tasks));
     }
 
     setFilter(id: filterType) {
